@@ -23,7 +23,6 @@ export default function Users() {
         setError(err.message);
       });
   }, []);
-  if (error) return <p>Error: {error}</p>;
 
   return (
     <div>
