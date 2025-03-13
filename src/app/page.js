@@ -27,6 +27,7 @@ export default function Users() {
   return (
     <div>
       <h1>Users</h1>
+    
       <ul>
         {users.map((user) => (
           <li key={user.id}>
@@ -34,6 +35,7 @@ export default function Users() {
           </li>
         ))}
       </ul>
+        
     </div>
   );
 }
