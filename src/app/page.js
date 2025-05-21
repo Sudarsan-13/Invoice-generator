@@ -1,5 +1,4 @@
 "use client";
-// page.js (or App.js)
 import React, { useState, useRef, useEffect } from "react";
 import BillDetails from "./components/BillDetails";
 import ItemList from "./components/ItemList";
@@ -9,7 +8,7 @@ import Script from "next/script";
 
 const App = () => {
   const [items, setItems] = useState([]);
-  const [gst, setGst] = useState(18); // Default GST in India is 18%
+  const [gst, setGst] = useState(18); // default is 18 in India 
   const [showPreview, setShowPreview] = useState(false);
   const [companyInfo, setCompanyInfo] = useState({
     name: "",
@@ -42,7 +41,7 @@ const App = () => {
       return;
     }
 
-    // Add print-specific styles to remove headers and footers
+    // Adding a print-specific styles to remove headers and footers
     const style = document.createElement("style");
     style.innerHTML = `
       @media print {
@@ -71,13 +70,8 @@ const App = () => {
     `;
     document.head.appendChild(style);
 
-    // Add a temporary ID for printing
     printRef.current.id = "printable";
-
-    // Print
     window.print();
-
-    // Remove the ID and styles after printing (cleanup)
     setTimeout(() => {
       printRef.current.id = "";
       document.head.removeChild(style);
